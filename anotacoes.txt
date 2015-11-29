@@ -1,0 +1,50 @@
+======= MAVEN =======
+Gerenciador de build e dependencias
+
+Instalar: http://maven.apache.org/download.cgi
+
+Colocar no PATH (linux):
+Editar o arquivo .bashrc e colocar a seguinte linha no final:
+export PATH=$PATH:/path/to/directory
+Fazer a modifica'cao funcionar imediatamente, com o comando:
+> source ~/.bashrc
+Vericicar se funcionou:
+> echo $PATH
+
+Versao do MAven:
+> mvn -version
+
+Gerar projeto padrao no Maven:
+mvn archetype:generate -DgroupId=br.com.caelum.maven -DartifactId=produtos -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+
+Testando (no diretorio do pom.xml):
+> mvn test (teste feito com junit)
+
+Gerar o pacote:
+> mvn package
+
+Executar a app:
+> java -cp target/produtos-1.0-SNAPSHOT.jar br.com.caelum.maven.App
+
+Preparar projeto p/ eclipse:
+> mvn eclipse:eclipse
+
+Importar projeto no Eclipse:
+Import... -> Existing project into workspace
+
+Add a Calsspath Variable M2_REPO se nao existir:
+Window->Preferences->Classpath Variables
+Valor: /home/francisco/.m2/repository
+
+Compilar via linha de comando:
+> mvn compile
+
+ANT: gerencia build
+IVY: gerencia dependencias
+MAVEN: build e dependencias
+
+Alternativas ao MAVEN:
+GANT, GRADLE, RAKE, RAVEN, BUILDR
+
+Biblioteca de dependencias MAVEN:
+mvnrepository.com
