@@ -14,7 +14,7 @@ Vericicar se funcionou:
 Versao do MAven:
 > mvn -version
 
-Gerar projeto padrao no Maven:
+Gerar projeto padrao no Maven (Nome: produtos):
 mvn archetype:generate -DgroupId=br.com.caelum.maven -DartifactId=produtos -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
 
 Testando (no diretorio do pom.xml):
@@ -48,3 +48,7 @@ GANT, GRADLE, RAKE, RAVEN, BUILDR
 
 Biblioteca de dependencias MAVEN:
 mvnrepository.com
+Repositorio cental do maven:
+mirrors.ibiblio.org/maven2/
+
+Usar os comandos MAVEN offline: mvn -o comando (mais rapido, nao busca na internet)
