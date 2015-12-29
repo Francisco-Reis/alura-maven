@@ -11,7 +11,7 @@ Fazer a modificacao funcionar imediatamente, com o comando:
 Vericicar se funcionou:
 > echo $PATH
 
-Versao do MAven:
+Versao do Maven:
 > mvn -version
 
 Gerar projeto padrao no Maven (Nome: produtos):
@@ -65,4 +65,84 @@ Local do relatório: target/site/pmd.html
 JACOCO:
 Testa automacicamente e gera relatorio de codigo coberto por testes
 Possui diversas opcoes, incluindo porcentagem de cofigo coberto.
-Deve-se alterar o arquivo 'pom.xml' para configura-lo
+Deve-se alterar o arquivo 'pom.xml' para configura-lo. Ex (apos dependencies):
+<build>
+		<plugins>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.7.2.201409121644</version>
+				<executions>
+					<execution>
+						<id>prepare-agent</id>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>report</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>check</id>
+						<goals>
+							<goal>check</goal>
+						</goals>
+						<configuration>
+							<rules>
+								<rule>
+									<element>CLASS</element>
+									<limits>
+										<limit>
+											<counter>CLASS</counter>
+											<value>COVEREDRATIO</value>
+											<minimum>1.0</minimum>
+										</limit>
+										<limit>
+											<counter>INSTRUCTION</counter>
+											<value>COVEREDRATIO</value>
+											<minimum>0.9</minimum>
+										</limit>
+										<limit>
+											<counter>METHOD</counter>
+											<value>COVEREDRATIO</value>
+											<minimum>0.95</minimum>
+										</limit>
+										<limit>
+											<counter>BRANCH</counter>
+											<value>COVEREDRATIO</value>
+											<minimum>0.85</minimum>
+										</limit>
+										<limit>
+											<counter>COMPLEXITY</counter>
+											<value>COVEREDRATIO</value>
+											<minimum>0.85</minimum>
+										</limit>
+										<limit>
+											<counter>LINE</counter>
+											<value>COVEREDRATIO</value>
+											<minimum>0.9</minimum>
+										</limit>
+									</limits>
+								</rule>
+							</rules>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+Depois rodar:
+mvn package
+mvn verify
+
+MINI-TUTORIAL WEBAPP COM MAVEN:
+As instrocoes abaixo criam e configuram o WebApp 'produtos-web':
+> mvn archetype:generate -DgroupId=br.com.caelum.maven -DartifactId=produtos-web -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false
+> mkdir src/main/java
+> mvn eclipse:eclipse -Dwtpversion=2.0
+> rm src/main/webapp/index.jsp
+No eclipse, no projeto -> Properties -> Project Facets -> Ajeitar a versao do java
