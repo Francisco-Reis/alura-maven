@@ -6,7 +6,7 @@ Instalar: http://maven.apache.org/download.cgi
 Colocar no PATH (linux):
 Editar o arquivo .bashrc e colocar a seguinte linha no final:
 export PATH=$PATH:/path/to/directory
-Fazer a modifica'cao funcionar imediatamente, com o comando:
+Fazer a modificacao funcionar imediatamente, com o comando:
 > source ~/.bashrc
 Vericicar se funcionou:
 > echo $PATH
@@ -17,11 +17,11 @@ Versao do MAven:
 Gerar projeto padrao no Maven (Nome: produtos):
 mvn archetype:generate -DgroupId=br.com.caelum.maven -DartifactId=produtos -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
 
-Testando (no diretorio do pom.xml):
-> mvn test (teste feito com junit)
-
 Gerar o pacote:
 > mvn package
+
+Teste unitario (no diretorio do pom.xml):
+> mvn test (teste feito com junit)
 
 Executar a app:
 > java -cp target/produtos-1.0-SNAPSHOT.jar br.com.caelum.maven.App
@@ -35,6 +35,8 @@ Import... -> Existing project into workspace
 Add a Calsspath Variable M2_REPO se nao existir:
 Window->Preferences->Classpath Variables
 Valor: /home/francisco/.m2/repository
+
+Repositorio padrao Maven: <home>/.m2/repository
 
 Compilar via linha de comando:
 > mvn compile
@@ -52,3 +54,15 @@ Repositorio cental do maven:
 mirrors.ibiblio.org/maven2/
 
 Usar os comandos MAVEN offline: mvn -o comando (mais rapido, nao busca na internet)
+
+Plugin Relatorio de Testes: mvn surefire-report:report
+Gera um html em target/site/surefire-report.html
+
+PMD: Busca pequenos defeitos no código e gera relatorio
+mvn pmd:pmd
+Local do relatório: target/site/pmd.html
+
+JACOCO:
+Testa automacicamente e gera relatorio de codigo coberto por testes
+Possui diversas opcoes, incluindo porcentagem de cofigo coberto.
+Deve-se alterar o arquivo 'pom.xml' para configura-lo
