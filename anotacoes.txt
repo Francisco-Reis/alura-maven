@@ -149,3 +149,16 @@ No eclipse, no projeto -> Properties -> Project Facets -> Ajeitar a versao do ja
 
 CARGO: Plugin do Maven que encapsula App Servers
 https://codehaus-cargo.github.io/cargo/Maven2+plugin.html
+
+Escopo do Maven
+Compile(padrao): Projeto todo
+Test: somente compilar e executar testes
+Opcional=True: Soh baixa o pacote no nivel 1. Nao baixa para pacotes q o usam.
+Provided: inclui compilacao, nao inclui execucao
+Runtime:  nao inclui compilacao, inclui execucao
+
+Arvore de dependencias do Projeto:
+> mvn dependency:tree
+
+Instalar um projeto proprio no Repo do Maven:
+> mvn install
