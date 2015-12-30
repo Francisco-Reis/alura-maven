@@ -146,3 +146,6 @@ As instrocoes abaixo criam e configuram o WebApp 'produtos-web':
 > mvn eclipse:eclipse -Dwtpversion=2.0
 > rm src/main/webapp/index.jsp
 No eclipse, no projeto -> Properties -> Project Facets -> Ajeitar a versao do java
+
+CARGO: Plugin do Maven que encapsula App Servers
+https://codehaus-cargo.github.io/cargo/Maven2+plugin.html
